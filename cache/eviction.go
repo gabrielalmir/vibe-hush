@@ -9,10 +9,8 @@ type EvictionStrategy interface {
 type LRU struct{}
 
 func (l LRU) Evict(cache *Cache) {
-	elem := cache.order.Front()
-	if elem != nil {
-		cache.order.Remove(elem)
-		delete(cache.items, elem.Value.(*CacheItem).key)
+	if elem := cache.order.Front(); elem != nil {
+		cache.Remove(elem)
 	}
 }
 
