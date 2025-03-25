@@ -1,0 +1,73 @@
+@baseUrl = http://localhost:8080
+@authToken = {{$dotenv VIBE_AUTH_TOKEN}}
+
+### Health Check
+GET {{baseUrl}}/metrics
+Accept: text/plain
+
+### Set Cache Item
+PUT {{baseUrl}}/cache/user1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "value": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "age": 30
+    }
+}
+
+### Get Cache Item
+GET {{baseUrl}}/cache/user1
+Authorization: Bearer {{authToken}}
+
+### Get All Cache Items
+GET {{baseUrl}}/cache
+Authorization: Bearer {{authToken}}
+
+### Delete Cache Item
+DELETE {{baseUrl}}/cache/user1
+Authorization: Bearer {{authToken}}
+
+### Test Invalid Token
+GET {{baseUrl}}/cache/user1
+Authorization: Bearer invalid-token
+
+### Test Missing Token
+GET {{baseUrl}}/cache/user1
+
+### Test Non-existent Item
+GET {{baseUrl}}/cache/non-existent
+Authorization: Bearer {{authToken}}
+
+### Set Multiple Items
+PUT {{baseUrl}}/cache/item1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "value": "Test Item 1"
+}
+
+###
+PUT {{baseUrl}}/cache/item2
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "value": "Test Item 2"
+}
+
+### Get Multiple Items to Check Cache Size
+GET {{baseUrl}}/cache
+Authorization: Bearer {{authToken}}
+
+### Test JSON Validation
+PUT {{baseUrl}}/cache/invalid
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "invalid": "format"
+}
