@@ -3,6 +3,7 @@
 
 ### Health Check
 GET {{baseUrl}}/metrics
+Authorization: Bearer {{authToken}}
 Accept: text/plain
 
 ### Set Cache Item
