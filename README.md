@@ -1,10 +1,9 @@
-# Vibe Hush
+# Hush
 
-**Vibe Hush** is a tool in the making to bring simple, efficient caching to legacy systems. Built with **Go** to run anywhere, it’ll offer a REST API and CLI to store data in memory or on disk, speeding up systems where performance lags.
+**Hush** is a tool in the making to bring simple, efficient caching to legacy systems. Built with **Go** to run anywhere, it’ll offer a REST API and CLI to store data in memory or on disk, speeding up systems where performance lags.
 
 Picture bridging the gap between your legacy system and modern tech with an open-source project until established tools become viable. That’s Vibe Hush.
 
-🔗 Site: https://vibe.gabrielalmir.com
 Status: Concept in development.
 
 ---
